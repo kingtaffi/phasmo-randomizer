@@ -124,12 +124,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapTanglewood === true) {
                 MapRemove(mapname);
-                setTanglewood("false");
+                setTanglewood(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setTanglewood("true");
+                setTanglewood(true);
                 //console.log("map added");
             }
         }
@@ -137,12 +137,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapRidgeview === true) {
                 MapRemove(mapname);
-                setRidgeview("false");
+                setRidgeview(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setRidgeview("true");
+                setRidgeview(true);
                 //console.log("map added");
             }
         }
@@ -150,25 +150,25 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapWillowStreet === true) {
                 MapRemove(mapname);
-                setWillowStreet("false");
+                setWillowStreet(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setWillowStreet("true");
-                //console.log("map added");
+                setWillowStreet(true);
+               //console.log("map added");
             }
         }
         if(mapname === "42 Edgefield Road"){
             //console.log(mapname);
             if(mapEdgefield === true) {
                 MapRemove(mapname);
-                setEdgefield("false");
+                setEdgefield(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setEdgefield("true");
+                setEdgefield(true);
                 //console.log("map added");
             }
         }
@@ -176,12 +176,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapCamp === true) {
                 MapRemove(mapname);
-                setCamp("false");
+                setCamp(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setCamp("true");
+                setCamp(true);
                 //console.log("map added");
             }
         }
@@ -189,12 +189,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapGrafton === true) {
                 MapRemove(mapname);
-                setGrafton("false");
+                setGrafton(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setGrafton("true");
+                setGrafton(true);
                 //console.log("map added");
             }
         }
@@ -203,12 +203,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapBleasdale === true) {
                 MapRemove(mapname);
-                setBleasdale("false");
+                setBleasdale(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setBleasdale("true");
+                setBleasdale(true);
                 //console.log("map added");
             }
         }
@@ -216,7 +216,7 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapCampsite === true) {
                 MapRemove(mapname);
-                setCampsite("false");
+                setCampsite(false);
                 //console.log("map removed");
             }
             else {
@@ -229,12 +229,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapHope === true) {
                 MapRemove(mapname);
-                setHope("false");
+                setHope(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setHope("true");
+                setHope(true);
                 //console.log("map added");
             }
         }
@@ -242,12 +242,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapPrison === true) {
                 MapRemove(mapname);
-                setPrison("false");
+                setPrison(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setPrison("true");
+                setPrison(true);
                 //console.log("map added");
             }
         }
@@ -255,12 +255,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapRestricted === true) {
                 MapRemove(mapname);
-                seRestricted("false");
+                seRestricted(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                seRestricted("true");
+                seRestricted(true);
                 //console.log("map added");
             }
         }
@@ -269,12 +269,12 @@ const Content = (props) => {
            // console.log(mapname);
             if(mapBrownstone === true) {
                 MapRemove(mapname);
-                setBrownstone("false");
+                setBrownstone(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setBrownstone("true");
+                setBrownstone(true);
                 //console.log("map added");
             }
         }
@@ -282,12 +282,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapMeadows === true) {
                 MapRemove(mapname);
-                setMeadows("false");
+                setMeadows(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                setMeadows("true");
+                setMeadows(true);
                 //console.log("map added");
             }
         }
