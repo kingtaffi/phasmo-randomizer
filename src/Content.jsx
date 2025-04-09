@@ -221,7 +221,7 @@ const Content = (props) => {
             }
             else {
                 MapAdd(mapname);
-                setCampsite("true");
+                setCampsite(true);
                 //console.log("map added");
             }
         }
