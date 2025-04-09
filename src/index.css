@@ -1,0 +1,9 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    background-color: rgb(69, 29, 143);
+    height: 100vh;
+}
