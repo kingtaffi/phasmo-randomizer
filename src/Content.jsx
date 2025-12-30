@@ -1,11 +1,11 @@
 //randomize pl speed, gh speed, evidence, map,
-import React, { useState } from 'react'; //import useState
+import React, { useState, useRef, useEffect } from 'react';
 import './style.css'
 
 const Content = (props) => {
 
     //map
-    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School", "Sunny Meadows"];
+    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Nell's Diner", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School", "Sunny Meadows"];
 
     //player
     const Sanity = ["0%", "0%", "25%", "25%", "50%", "50%", "75%", "100%"];
@@ -38,13 +38,14 @@ const Content = (props) => {
     
     //map
     const [Map, setMap] = useState(map);
-    const [MapCount, setMapCount] = useState(12);
+    const [MapCount, setMapCount] = useState(13);
     const [MapNumber, setMapNumber] = useState(0);
     const [mapTanglewood, setTanglewood] = useState(true);
     const [mapRidgeview, setRidgeview] = useState(true);
     const [mapWillowStreet, setWillowStreet] = useState(true);
     const [mapEdgefield, setEdgefield] = useState(true);
     const [mapCamp, setCamp] = useState(true);
+    const [mapNellDiner, setNellDiner] = useState(true);
     const [mapGrafton, setGrafton] = useState(true);
     const [mapBleasdale, setBleasdale] = useState(true);
     const [mapCampsite, setCampsite] = useState(true);
@@ -80,6 +81,15 @@ const Content = (props) => {
     const [fusevisi, setfusevisi] = useState(0);
     const [curseditem, setcurseditem] = useState(0);
 
+    // popup scroller state + refs
+    const [overlayVisible, setOverlayVisible] = useState(false);
+    const [scrollerItems, setScrollerItems] = useState([]);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [chosenIndex, setChosenIndex] = useState(0);
+    const trackRef = useRef(null);
+    const containerRef = useRef(null);
+    const itemRef = useRef(null);
+
     const randomizeNum = (min, max) => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
@@ -87,7 +97,8 @@ const Content = (props) => {
     const randomize = () => {
     
     //map
-    setMapNumber(randomizeNum(0,MapCount))
+    //setMapNumber(randomizeNum(0,MapCount))
+    startScroller();
     //player
     setSanity(randomizeNum(0,7))
     setPill(randomizeNum(0,10))
@@ -115,6 +126,66 @@ const Content = (props) => {
     setfusevisi(randomizeNum(0,1))
     setcurseditem(randomizeNum(0,2))
     }
+
+    // scroller logic
+    const startScroller = () => {
+        if (Map.length === 0) return;
+        const target = randomizeNum(0, Map.length - 1);
+        setChosenIndex(target);
+
+        // build repeated items so the track can scroll several loops for effect
+        const repeat = 8; // number of loops before landing
+        const repeated = [];
+        for (let r = 0; r < repeat; r++) {
+            repeated.push(...Map);
+        }
+        // append final sequence so target appears at end place we want to land on
+        repeated.push(...Map);
+        // compute final target position inside repeated array: pick index in last loop
+        const finalGlobalIndex = repeat * Map.length + target;
+
+        setScrollerItems(repeated);
+        setOverlayVisible(true);
+
+        // allow DOM paint, then trigger animation via transform with transition
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                if (!trackRef.current || !containerRef.current || !itemRef.current) {
+                    // fallback: close quickly and set map
+                    setMapNumber(target);
+                    setOverlayVisible(false);
+                    return;
+                }
+                const itemWidth = itemRef.current.offsetWidth;
+                const containerWidth = containerRef.current.offsetWidth;
+                // we want the chosen item centered in the container when animation ends
+                const finalTranslate = finalGlobalIndex * itemWidth - (containerWidth / 2 - itemWidth / 2);
+                const durationSeconds = 3.2 + Math.random() * 1.5; // randomize duration a bit
+
+                const track = trackRef.current;
+                track.style.transition = `transform ${durationSeconds}s cubic-bezier(.22,.9,.15,1)`;
+                track.style.transform = `translateX(${-finalTranslate}px)`;
+                setIsAnimating(true);
+
+                const onEnd = () => {
+                    track.removeEventListener('transitionend', onEnd);
+                    // set chosen map as active selection and hide overlay
+                    setMapNumber(target);
+                    // small delay so user sees it centered
+                    setTimeout(() => {
+                        setOverlayVisible(false);
+                        // reset transform so next animation starts from zero
+                        track.style.transition = '';
+                        track.style.transform = '';
+                        setIsAnimating(false);
+                    }, 400);
+                };
+                track.addEventListener('transitionend', onEnd);
+            });
+        });
+    };
+
+
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_checkbox
 
     const MapSelection = (mapname) => {
@@ -182,6 +253,19 @@ const Content = (props) => {
             else {
                 MapAdd(mapname);
                 setCamp(true);
+                //console.log("map added");
+            }
+        }
+        if(mapname === "Nell's Diner"){
+            //console.log(mapname);
+            if(mapNellDiner === true) {
+                MapRemove(mapname);
+                setNellDiner(false);
+                //console.log("map removed");
+            }
+            else {
+                MapAdd(mapname);
+                setNellDiner(true);
                 //console.log("map added");
             }
         }
@@ -339,6 +423,10 @@ const Content = (props) => {
                         <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Grafton Farmhouse")}/>
                         <span className="checkmark"></span>
                     </label>
+                    <label className="container">Nell's Diner
+                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Nell's Diner")}/>
+                        <span className="checkmark"></span>
+                    </label>
                 </div>
                 <div className="map-item">
                     <label className="container">Bleasdale Farmhouse
@@ -409,6 +497,30 @@ const Content = (props) => {
                     <h2>Cursed items: {curseditems[curseditem]}</h2>
                 </div>
             </div>
+            {/* Overlay scroller popup */}
+            {overlayVisible && (
+                <div className="scroller-overlay" onClick={() => { if(!isAnimating) setOverlayVisible(false); }}>
+                    <div className="scroller-popup" onClick={(e) => e.stopPropagation()}>
+                        <div className="scroller-header">
+                            <button className="scroller-close" onClick={() => { if(!isAnimating) setOverlayVisible(false); }}>Close</button>
+                        </div>
+                        <div className="scroller-container" ref={containerRef}>
+                            <div className="scroller-track" ref={trackRef}>
+                                {scrollerItems.map((name, idx) => (
+                                    <div
+                                        className="scroller-item"
+                                        key={idx}
+                                        ref={idx === 0 ? itemRef : null}
+                                    >
+                                        {name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        {/*<div className="scroller-selected">Landing on: <strong>{Map[chosenIndex]}</strong></div>*/}
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

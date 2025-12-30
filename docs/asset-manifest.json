@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/phasmo-randomizer/static/css/main.e9924cc9.css",
-    "main.js": "/phasmo-randomizer/static/js/main.60a3b889.js",
+    "main.css": "/phasmo-randomizer/static/css/main.67244658.css",
+    "main.js": "/phasmo-randomizer/static/js/main.623fed37.js",
     "index.html": "/phasmo-randomizer/index.html",
-    "main.e9924cc9.css.map": "/phasmo-randomizer/static/css/main.e9924cc9.css.map",
-    "main.60a3b889.js.map": "/phasmo-randomizer/static/js/main.60a3b889.js.map"
+    "main.67244658.css.map": "/phasmo-randomizer/static/css/main.67244658.css.map",
+    "main.623fed37.js.map": "/phasmo-randomizer/static/js/main.623fed37.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9924cc9.css",
-    "static/js/main.60a3b889.js"
+    "static/css/main.67244658.css",
+    "static/js/main.623fed37.js"
   ]
 }
