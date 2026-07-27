@@ -1,13 +1,27 @@
 {
   "files": {
-    "main.css": "/phasmo-randomizer/static/css/main.67244658.css",
-    "main.js": "/phasmo-randomizer/static/js/main.623fed37.js",
+    "main.css": "/phasmo-randomizer/static/css/main.9535ea98.css",
+    "main.js": "/phasmo-randomizer/static/js/main.a204e33a.js",
+    "static/media/Maple Lodge Campsite.JPG": "/phasmo-randomizer/static/media/Maple Lodge Campsite.e6acaec5eb17e6d74e36.JPG",
+    "static/media/Bleasdale Farmhouse.JPG": "/phasmo-randomizer/static/media/Bleasdale Farmhouse.ab505219c98b7b4485f0.JPG",
+    "static/media/Point Hope.JPG": "/phasmo-randomizer/static/media/Point Hope.69c253d92d6acab5389f.JPG",
+    "static/media/13 Willow Street.JPG": "/phasmo-randomizer/static/media/13 Willow Street.55b553d33479f63e9283.JPG",
+    "static/media/Sunny Meadows.JPG": "/phasmo-randomizer/static/media/Sunny Meadows.49da7585ac160e622554.JPG",
+    "static/media/Camp Woodwind.JPG": "/phasmo-randomizer/static/media/Camp Woodwind.db59e022f7e5a609b945.JPG",
+    "static/media/Brownstone High School.JPG": "/phasmo-randomizer/static/media/Brownstone High School.d27207506bc5fd9e7288.JPG",
+    "static/media/6 Tanglewood Drive.JPG": "/phasmo-randomizer/static/media/6 Tanglewood Drive.727d0098f8510e5443ed.JPG",
+    "static/media/Prison.JPG": "/phasmo-randomizer/static/media/Prison.56eb0b2f453070091002.JPG",
+    "static/media/Grafton Farmhouse.JPG": "/phasmo-randomizer/static/media/Grafton Farmhouse.33ea8970538e4a77e62e.JPG",
+    "static/media/Nells Diner.JPG": "/phasmo-randomizer/static/media/Nells Diner.7c6d1c019cd7391a15e6.JPG",
+    "static/media/10 Ridgeview Court.JPG": "/phasmo-randomizer/static/media/10 Ridgeview Court.42eab21d33c7680089a6.JPG",
+    "static/media/Sunny Meadows Restricted.JPG": "/phasmo-randomizer/static/media/Sunny Meadows Restricted.581b49bbf8c59104b654.JPG",
+    "static/media/42 Edgefield Road.JPG": "/phasmo-randomizer/static/media/42 Edgefield Road.a63b15de05c4994170bc.JPG",
     "index.html": "/phasmo-randomizer/index.html",
-    "main.67244658.css.map": "/phasmo-randomizer/static/css/main.67244658.css.map",
-    "main.623fed37.js.map": "/phasmo-randomizer/static/js/main.623fed37.js.map"
+    "main.9535ea98.css.map": "/phasmo-randomizer/static/css/main.9535ea98.css.map",
+    "main.a204e33a.js.map": "/phasmo-randomizer/static/js/main.a204e33a.js.map"
   },
   "entrypoints": [
-    "static/css/main.67244658.css",
-    "static/js/main.623fed37.js"
+    "static/css/main.9535ea98.css",
+    "static/js/main.a204e33a.js"
   ]
 }

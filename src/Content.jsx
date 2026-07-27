@@ -5,7 +5,7 @@ import './style.css'
 const Content = (props) => {
 
     //map
-    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Nell's Diner", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School", "Sunny Meadows"];
+    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Nells Diner", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School", "Sunny Meadows"];
 
     //player
     const Sanity = ["0%", "0%", "25%", "25%", "50%", "50%", "75%", "100%"];
@@ -256,7 +256,7 @@ const Content = (props) => {
                 //console.log("map added");
             }
         }
-        if(mapname === "Nell's Diner"){
+        if(mapname === "Nells Diner"){
             //console.log(mapname);
             if(mapNellDiner === true) {
                 MapRemove(mapname);
@@ -423,8 +423,8 @@ const Content = (props) => {
                         <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Grafton Farmhouse")}/>
                         <span className="checkmark"></span>
                     </label>
-                    <label className="container">Nell's Diner
-                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Nell's Diner")}/>
+                    <label className="container">Nells Diner
+                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Nells Diner")}/>
                         <span className="checkmark"></span>
                     </label>
                 </div>
@@ -463,6 +463,10 @@ const Content = (props) => {
             </div>
             <button className='randomize' onClick={() => randomize()}>randomize</button>
             <h1>Map: {Map[MapNumber]}</h1>
+            <div className="map-image-container">
+                <img className='map-image' src={require(`./map-images/${Map[MapNumber]}.JPG`)} alt={Map[MapNumber]}/>
+            </div>
+            <h2>Randomize settings</h2>
             <div className='flex-container'>
                 <div className='flex-item'>
                     <h1>Player</h1>
@@ -512,7 +516,7 @@ const Content = (props) => {
                                         key={idx}
                                         ref={idx === 0 ? itemRef : null}
                                     >
-                                        {name}
+                                        {<img className='map-image' src={require(`./map-images/${name}.JPG`)} alt={Map[MapNumber]}/>}
                                     </div>
                                 ))}
                             </div>

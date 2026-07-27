@@ -21,6 +21,18 @@
     font-size: 22px;
 }
 
+.map-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.map-image {
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
 .container {
     display: block;
     position: relative;
