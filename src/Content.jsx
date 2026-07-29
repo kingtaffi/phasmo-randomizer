@@ -483,7 +483,7 @@ const Content = (props) => {
             <button className='randomize' onClick={() => randomize()}>randomize</button>
             <h1>Map: {Map[MapNumber]}</h1>
             <div className="map-image-container">
-                <img className='map-image' src={require(`./map-images/${Map[MapNumber]}.JPG`)} alt={Map[MapNumber]}/>
+                {<img className='map-image' src={require(`./map-images/${Map[MapNumber]}.JPG`)} alt={Map[MapNumber]}/>}
             </div>
             {randomizerSettings && (
             <>
