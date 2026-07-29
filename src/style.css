@@ -199,8 +199,13 @@
 
 .scroller-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-bottom: 8px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    h3 {
+        background: none;
+        text-align: center;
+    }
 }
 
 .scroller-close {

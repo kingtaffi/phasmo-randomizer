@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phasmo-randomizer/static/css/main.dda05ebc.css",
-    "main.js": "/phasmo-randomizer/static/js/main.a204e33a.js",
+    "main.css": "/phasmo-randomizer/static/css/main.09d56e94.css",
+    "main.js": "/phasmo-randomizer/static/js/main.9342cde9.js",
     "static/media/Maple Lodge Campsite.JPG": "/phasmo-randomizer/static/media/Maple Lodge Campsite.e6acaec5eb17e6d74e36.JPG",
     "static/media/Bleasdale Farmhouse.JPG": "/phasmo-randomizer/static/media/Bleasdale Farmhouse.ab505219c98b7b4485f0.JPG",
     "static/media/Point Hope.JPG": "/phasmo-randomizer/static/media/Point Hope.69c253d92d6acab5389f.JPG",
@@ -17,11 +17,11 @@
     "static/media/Sunny Meadows Restricted.JPG": "/phasmo-randomizer/static/media/Sunny Meadows Restricted.581b49bbf8c59104b654.JPG",
     "static/media/42 Edgefield Road.JPG": "/phasmo-randomizer/static/media/42 Edgefield Road.a63b15de05c4994170bc.JPG",
     "index.html": "/phasmo-randomizer/index.html",
-    "main.dda05ebc.css.map": "/phasmo-randomizer/static/css/main.dda05ebc.css.map",
-    "main.a204e33a.js.map": "/phasmo-randomizer/static/js/main.a204e33a.js.map"
+    "main.09d56e94.css.map": "/phasmo-randomizer/static/css/main.09d56e94.css.map",
+    "main.9342cde9.js.map": "/phasmo-randomizer/static/js/main.9342cde9.js.map"
   },
   "entrypoints": [
-    "static/css/main.dda05ebc.css",
-    "static/js/main.a204e33a.js"
+    "static/css/main.09d56e94.css",
+    "static/js/main.9342cde9.js"
   ]
 }

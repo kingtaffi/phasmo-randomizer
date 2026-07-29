@@ -506,7 +506,7 @@ const Content = (props) => {
                 <div className="scroller-overlay" onClick={() => { if(!isAnimating) setOverlayVisible(false); }}>
                     <div className="scroller-popup" onClick={(e) => e.stopPropagation()}>
                         <div className="scroller-header">
-                            <button className="scroller-close" onClick={() => { if(!isAnimating) setOverlayVisible(false); }}>Close</button>
+                            <h3>Selecting map</h3>
                         </div>
                         <div className="scroller-container" ref={containerRef}>
                             <div className="scroller-track" ref={trackRef}>
