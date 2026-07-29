@@ -54,6 +54,9 @@ const Content = (props) => {
     const [mapRestricted, seRestricted] = useState(true);
     const [mapBrownstone, setBrownstone] = useState(true);
     const [mapMeadows, setMeadows] = useState(true);
+    //Randomizer settings
+    const [randomizerAnimation, setRandomizerAnimation] = useState(true);
+    const [randomizerSettings, setRandomizerSettings] = useState(true);
     //player
     const [sanity, setSanity] = useState(0);
     const [pill, setPill] = useState(0)
@@ -95,10 +98,15 @@ const Content = (props) => {
     };
 
     const randomize = () => {
-    
-    //map
+    if (randomizerAnimation) {
     //setMapNumber(randomizeNum(0,MapCount))
     startScroller();
+    }
+    else {
+        const target = randomizeNum(0, Map.length - 1);
+        setMapNumber(target);
+    }
+    //map
     //player
     setSanity(randomizeNum(0,7))
     setPill(randomizeNum(0,10))
@@ -460,47 +468,63 @@ const Content = (props) => {
                         <span className="checkmark"></span>
                     </label>
                 </div>
+                <div className="map-item">
+                    <h3>Randomizer settings</h3>
+                    <label className="container">Settings for randomizer
+                        <input type="checkbox" defaultChecked="checked" onClick={() => setRandomizerSettings(!randomizerSettings)}/>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label className="container">Randomizer animation
+                        <input type="checkbox" defaultChecked="checked" onClick={() => setRandomizerAnimation(!randomizerAnimation)}/>
+                        <span className="checkmark"></span>
+                    </label>
+                </div>
             </div>
             <button className='randomize' onClick={() => randomize()}>randomize</button>
             <h1>Map: {Map[MapNumber]}</h1>
             <div className="map-image-container">
                 <img className='map-image' src={require(`./map-images/${Map[MapNumber]}.JPG`)} alt={Map[MapNumber]}/>
             </div>
+            {randomizerSettings && (
+            <>
             <h2>Randomize settings</h2>
-            <div className='flex-container'>
-                <div className='flex-item'>
-                    <h1>Player</h1>
-                    <h2>Sanity: {Sanity[sanity]}</h2>
-                    <h2>Sanity pill: {Sanitypill[pill]}</h2>
-                    <h2>Sanity drain:{sanitydrain[sanidrain]} </h2>
-                    <h2>Sprint: {sprint[sprint1]}</h2>
-                    <h2>Player speed: {playerspeed[plspeed]}</h2>
-                    <h2>Flashlight: {flashlight[fleshlight]}</h2>
-                </div>
-                <div className='flex-item'>
-                    <h1>Ghost</h1>
-                    <h2>Ghost speed: {ghostspeed[ghspeed]}</h2>
-                    <h2>Roaming frequency: {roamfreq[roamfrequ]}</h2>
-                    <h2>Changing favorite room: {changeroom[changeroomfreq]}</h2>
-                    <h2>Activity level: {activitylevel[actilevel]}</h2>
-                    <h2>Event frequency: {eventfreq[eventfrequ]}</h2>
-                    <h2>Grace period: {graceperiod[graceperi]}</h2>
-                    <h2>Hunt duration: {Huntdura[huntdura]}</h2>
-                    <h2>Evidence: {evidende[evidence]}</h2>
-                </div>
-                <div className='flex-item'>
-                    <h1>Contract</h1>
-                    <h2>Setup time: {setuptime[setuptimer]}</h2>
-                    <h2>Weather: {weather[weatherr]}</h2>
-                    <h2>Doors open at start: {doorstart[doorstarts]}</h2>
-                    <h2>Hiding places: {hideplace[hideplaces]}</h2>
-                    <h2>Sanity monitor: {sanitymonitor[sanimoni]}</h2>
-                    <h2>Activity monitor: {activitymonitor[actimoni]}</h2>
-                    <h2>Fusebox: {fusebox[fusebox1]}</h2>
-                    <h2>Fusebox visibility on map: {fuseboxvisi[fusevisi]}</h2>
-                    <h2>Cursed items: {curseditems[curseditem]}</h2>
-                </div>
-            </div>
+                        <div className='flex-container'>
+                            <div className='flex-item'>
+                                <h1>Player</h1>
+                                <h2>Sanity: {Sanity[sanity]}</h2>
+                                <h2>Sanity pill: {Sanitypill[pill]}</h2>
+                                <h2>Sanity drain:{sanitydrain[sanidrain]} </h2>
+                                <h2>Sprint: {sprint[sprint1]}</h2>
+                                <h2>Player speed: {playerspeed[plspeed]}</h2>
+                                <h2>Flashlight: {flashlight[fleshlight]}</h2>
+                            </div>
+                            <div className='flex-item'>
+                                <h1>Ghost</h1>
+                                <h2>Ghost speed: {ghostspeed[ghspeed]}</h2>
+                                <h2>Roaming frequency: {roamfreq[roamfrequ]}</h2>
+                                <h2>Changing favorite room: {changeroom[changeroomfreq]}</h2>
+                                <h2>Activity level: {activitylevel[actilevel]}</h2>
+                                <h2>Event frequency: {eventfreq[eventfrequ]}</h2>
+                                <h2>Grace period: {graceperiod[graceperi]}</h2>
+                                <h2>Hunt duration: {Huntdura[huntdura]}</h2>
+                                <h2>Evidence: {evidende[evidence]}</h2>
+                            </div>
+                            <div className='flex-item'>
+                                <h1>Contract</h1>
+                                <h2>Setup time: {setuptime[setuptimer]}</h2>
+                                <h2>Weather: {weather[weatherr]}</h2>
+                                <h2>Doors open at start: {doorstart[doorstarts]}</h2>
+                                <h2>Hiding places: {hideplace[hideplaces]}</h2>
+                                <h2>Sanity monitor: {sanitymonitor[sanimoni]}</h2>
+                                <h2>Activity monitor: {activitymonitor[actimoni]}</h2>
+                                <h2>Fusebox: {fusebox[fusebox1]}</h2>
+                                <h2>Fusebox visibility on map: {fuseboxvisi[fusevisi]}</h2>
+                                <h2>Cursed items: {curseditems[curseditem]}</h2>
+                            </div>
+                        </div>
+            </>
+            )}
+            
             {/* Overlay scroller popup */}
             {overlayVisible && (
                 <div className="scroller-overlay" onClick={() => { if(!isAnimating) setOverlayVisible(false); }}>
