@@ -5,7 +5,7 @@ import './style.css'
 const Content = (props) => {
 
     //map
-    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Nells Diner", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School", "Sunny Meadows"];
+    const map = ["6 Tanglewood Drive", "10 Ridgeview Court", "13 Willow Street", "42 Edgefield Road", "Camp Woodwind", "Nells Diner", "Point Hope Restricted", "Prison Restricted", "Grafton Farmhouse", "Bleasdale Farmhouse", "Maple Lodge Campsite", "Point Hope", "Prison", "Sunny Meadows Restricted", "Brownstone High School Restricted", "Brownstone High School", "Sunny Meadows"];
 
     //player
     const Sanity = ["0%", "0%", "25%", "25%", "50%", "50%", "75%", "100%"];
@@ -23,7 +23,7 @@ const Content = (props) => {
     const eventfreq = ["high", "medium", "low"];
     const graceperiod = ["0","1","2","3","4","5"];
     const Huntdura = ["low", "medium", "high"];
-    const evidende = ["3 evidence","2 evidence", "1 evidence", "No evidence"]
+    const evidende = ["3 evidence","2 evidence", "1 evidence", "No evidence"];
 
     //contract
     const setuptime = ["0","30","60","0","30","60","0","30","60","120","180","240","300"];
@@ -38,7 +38,7 @@ const Content = (props) => {
     
     //map
     const [Map, setMap] = useState(map);
-    const [MapCount, setMapCount] = useState(13);
+    const [MapCount, setMapCount] = useState(17);
     const [MapNumber, setMapNumber] = useState(0);
     const [mapTanglewood, setTanglewood] = useState(true);
     const [mapRidgeview, setRidgeview] = useState(true);
@@ -46,12 +46,15 @@ const Content = (props) => {
     const [mapEdgefield, setEdgefield] = useState(true);
     const [mapCamp, setCamp] = useState(true);
     const [mapNellDiner, setNellDiner] = useState(true);
+    const [mapPrisonRestricted, setPrisonRestricted] = useState(true);
+    const [mapPointHopeRestricted, setPointHopeRestricted] = useState(true);
     const [mapGrafton, setGrafton] = useState(true);
     const [mapBleasdale, setBleasdale] = useState(true);
     const [mapCampsite, setCampsite] = useState(true);
     const [mapHope, setHope] = useState(true);
     const [mapPrison, setPrison] = useState(true);
-    const [mapRestricted, seRestricted] = useState(true);
+    const [mapRestricted, setRestricted] = useState(true);
+    const [mapBrownstoneRestricted, setBrownstoneRestricted] = useState(true);
     const [mapBrownstone, setBrownstone] = useState(true);
     const [mapMeadows, setMeadows] = useState(true);
     //Randomizer settings
@@ -277,6 +280,32 @@ const Content = (props) => {
                 //console.log("map added");
             }
         }
+        if(mapname === "Prison Restricted"){
+            //console.log(mapname);
+            if(mapPrisonRestricted === true) {
+                MapRemove(mapname);
+                setPrisonRestricted(false);
+                //console.log("map removed");
+            }
+            else {
+                MapAdd(mapname);
+                setPrisonRestricted(true);
+                //console.log("map added");
+            }
+        }
+        if(mapname === "Point Hope Restricted"){
+            //console.log(mapname);
+            if(mapPointHopeRestricted === true) {
+                MapRemove(mapname);
+                setPointHopeRestricted(false);
+                //console.log("map removed");
+            }
+            else {
+                MapAdd(mapname);
+                setPointHopeRestricted(true);
+                //console.log("map added");
+            }
+        }
         if(mapname === "Grafton Farmhouse"){
             //console.log(mapname);
             if(mapGrafton === true) {
@@ -301,6 +330,19 @@ const Content = (props) => {
             else {
                 MapAdd(mapname);
                 setBleasdale(true);
+                //console.log("map added");
+            }
+        }
+        if(mapname === "Brownstone High School Restricted"){
+            //console.log(mapname);
+            if(mapBrownstoneRestricted === true) {
+                MapRemove(mapname);
+                setBrownstoneRestricted(false);
+                //console.log("map removed");
+            }
+            else {
+                MapAdd(mapname);
+                setBrownstoneRestricted(true);
                 //console.log("map added");
             }
         }
@@ -347,12 +389,12 @@ const Content = (props) => {
             //console.log(mapname);
             if(mapRestricted === true) {
                 MapRemove(mapname);
-                seRestricted(false);
+                setRestricted(false);
                 //console.log("map removed");
             }
             else {
                 MapAdd(mapname);
-                seRestricted(true);
+                setRestricted(true);
                 //console.log("map added");
             }
         }
@@ -435,6 +477,14 @@ const Content = (props) => {
                         <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Nells Diner")}/>
                         <span className="checkmark"></span>
                     </label>
+                    <label className="container">Point Hope Restricted
+                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Point Hope Restricted")}/>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label className="container">Prison Restricted
+                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Prison Restricted")}/>
+                        <span className="checkmark"></span>
+                    </label>
                 </div>
                 <div className="map-item">
                     <label className="container">Bleasdale Farmhouse
@@ -455,6 +505,10 @@ const Content = (props) => {
                     </label>
                     <label className="container">Sunny Meadows Restricted
                         <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Sunny Meadows Restricted")}/>
+                        <span className="checkmark"></span>
+                    </label>
+                    <label className="container">Brownstone High School Restricted
+                        <input type="checkbox" defaultChecked="checked" onClick={() => MapSelection("Brownstone High School Restricted")}/>
                         <span className="checkmark"></span>
                     </label>
                 </div>
